@@ -8,3 +8,10 @@ function getResponse() {
     }
     document.getElementById('chat-response').innerText = response;
 }
+function openChatbot() {
+    document.getElementById('chatbotPopup').style.display = 'block';
+}
+
+function closeChatbot() {
+    document.getElementById('chatbotPopup').style.display = 'none';
+}

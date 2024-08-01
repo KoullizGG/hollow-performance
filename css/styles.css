@@ -1,229 +1,178 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 1em 0;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1f1f1f;
 }
 
-header nav ul {
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ffcc;
+}
+
+nav ul {
     list-style: none;
+    display: flex;
+    margin: 0;
     padding: 0;
 }
 
-header nav ul li {
-    display: inline;
-    margin: 0 10px;
+nav ul li {
+    margin: 0 15px;
 }
 
-header nav ul li a {
-    color: white;
+nav ul li a {
     text-decoration: none;
-    font-weight: bold;
+    color: #ffffff;
+    font-size: 18px;
+    transition: color 0.3s;
 }
 
-section {
-    padding: 100px 20px;
+nav ul li a:hover {
+    color: #00ffcc;
+}
+
+.banner {
     text-align: center;
+    padding: 100px 20px;
+    background: url('images/high-performance-car.jpg') no-repeat center center/cover;
 }
 
-#home {
-    background: url('images/intro-bg.jpg') no-repeat center center/cover;
-    color: white;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.banner .intro h2 {
+    font-size: 48px;
+    margin: 0;
+    color: #00ffcc;
 }
 
-.intro {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
+.banner .intro p {
+    font-size: 24px;
+    margin: 10px 0;
 }
 
-.intro h2 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.intro p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.btn {
-    background-color: #ff5733;
-    color: white;
-    padding: 10px 20px;
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    background-color: #00ffcc;
+    color: #121212;
     text-decoration: none;
+    font-size: 18px;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #e14e2b;
+.cta-button:hover {
+    background-color: #00cc99;
 }
 
-.service-item {
-    background-color: white;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+section {
+    padding: 40px 20px;
 }
 
-.service-item:hover {
-    transform: translateY(-10px);
+.service-item, .gallery-container img {
+    margin: 10px 0;
+    border: 2px solid #00ffcc;
+    padding: 10px;
 }
 
 .gallery-container {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .gallery-container img {
-    margin: 10px;
-    width: calc(33% - 20px);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.gallery-container img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    height: auto;
 }
 
 footer {
+    padding: 20px;
+    background-color: #1f1f1f;
     text-align: center;
-    padding: 1em 0;
-    background-color: #333;
-    color: white;
 }
 
-#chatbot {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#chatbox {
-    border: 1px solid #eee;
-    height: 100px;
-    padding: 10px;
-    overflow-y: scroll;
-}
-
-#user-input {
-    width: 80%;
-    padding: 10px;
-    margin-right: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #ff5733;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #e14e2b;
-}
-/* Contact Form */
-form {
+.footer-content {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
-    margin: auto;
+    align-items: center;
 }
 
-form label {
-    margin-top: 10px;
+.social-media a {
+    margin: 0 10px;
+    color: #00ffcc;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-form input, form textarea {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.social-media a:hover {
+    color: #00cc99;
 }
 
-form button {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #ff5733;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #e14e2b;
-}
-
-/* Chatbot */
+/* Chatbot Styling */
 #chatbotButton {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #ff5733;
-    color: white;
+    padding: 10px 20px;
+    background-color: #00ffcc;
+    color: #121212;
     border: none;
-    padding: 15px;
-    border-radius: 50%;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#chatbotButton:hover {
+    background-color: #00cc99;
 }
 
 .chatbot-popup {
     display: none;
     position: fixed;
-    bottom: 0;
+    bottom: 80px;
     right: 20px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-    background-color: white;
     width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #1f1f1f;
+    border: 1px solid #00ffcc;
+    border-radius: 5px;
+    z-index: 1000;
 }
 
 .chatbot-header {
-    padding: 10px;
-    background: #333;
-    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
+    background-color: #00ffcc;
+    color: #121212;
+    border-radius: 5px 5px 0 0;
 }
 
 .close-btn {
-    font-size: 20px;
     cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #333333;
 }
 
 .chatbot-content {
     padding: 10px;
 }
+
+#chatbot {
+    display: none;
+}
+

@@ -1,8 +1,11 @@
+/* General Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
     background-color: #121212;
     color: #ffffff;
+    line-height: 1.6;
 }
 
 header {
@@ -21,13 +24,13 @@ header {
 
 nav ul {
     list-style: none;
+    padding: 0;
     display: flex;
     margin: 0;
-    padding: 0;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
@@ -37,10 +40,11 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li a.active {
     color: #00ffcc;
 }
 
+/* Banner Styles */
 .banner {
     text-align: center;
     padding: 100px 20px;
@@ -49,23 +53,20 @@ nav ul li a:hover {
 
 .banner .intro h2 {
     font-size: 48px;
-    margin: 0;
     color: #00ffcc;
 }
 
 .banner .intro p {
     font-size: 24px;
-    margin: 10px 0;
 }
 
+/* Call to Action Button */
 .cta-button {
     display: inline-block;
-    padding: 15px 30px;
-    margin-top: 20px;
     background-color: #00ffcc;
     color: #121212;
+    padding: 10px 20px;
     text-decoration: none;
-    font-size: 18px;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
@@ -74,16 +75,19 @@ nav ul li a:hover {
     background-color: #00cc99;
 }
 
+/* Section Styling */
 section {
     padding: 40px 20px;
 }
 
-.service-item, .gallery-container img {
-    margin: 10px 0;
-    border: 2px solid #00ffcc;
-    padding: 10px;
+.service-item {
+    background-color: #202020;
+    padding: 15px;
+    border-left: 5px solid #00ffcc;
+    margin: 20px 0;
 }
 
+/* Gallery Styles */
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
@@ -91,101 +95,112 @@ section {
 }
 
 .gallery-container img {
-    width: 200px;
-    height: auto;
+    width: calc(25% - 10px);
+    margin: 5px;
+    transition: transform 0.3s;
 }
 
+.gallery-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact-section {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-field input, .form-field textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Footer Styles */
 footer {
     padding: 20px;
     background-color: #1f1f1f;
     text-align: center;
 }
 
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .social-media a {
-    margin: 0 10px;
     color: #00ffcc;
+    margin: 0 10px;
     text-decoration: none;
-    transition: color 0.3s;
 }
 
 .social-media a:hover {
     color: #00cc99;
 }
 
-/* Chatbot Styling */
-#chatbotButton {
+/* Chatbot Styles */
+.chat-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 10px 20px;
     background-color: #00ffcc;
     color: #121212;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#chatbotButton:hover {
-    background-color: #00cc99;
 }
 
 .chatbot-popup {
     display: none;
     position: fixed;
-    bottom: 80px;
+    bottom: 90px;
     right: 20px;
     width: 300px;
     background-color: #1f1f1f;
-    border: 1px solid #00ffcc;
-    border-radius: 5px;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    padding: 10px;
     z-index: 1000;
 }
 
 .chatbot-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #00cc99;
+    color: white;
     padding: 10px;
-    background-color: #00ffcc;
-    color: #121212;
-    border-radius: 5px 5px 0 0;
 }
 
 .close-btn {
     cursor: pointer;
-    font-size: 18px;
-    transition: color 0.3s;
+    float: right;
+    font-size: 16px;
+    color: white;
 }
 
-.close-btn:hover {
-    color: #333333;
-}
-
-.chatbot-content {
-    padding: 10px;
-}
-
-/* Form styling */
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
+.chatbot-content iframe {
     width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+    height: 400px; /* Adjust height as necessary */
+}
+
+@media (max-width: 768px) {
+    .gallery-container img {
+        width: calc(50% - 10px); /* Adjust for smaller screens */
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
 }

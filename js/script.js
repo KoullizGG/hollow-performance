@@ -1,34 +1,45 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const axios = require('axios');
-const app = express();
-const port = process.env.PORT || 3000;
+function toggleChatbot() {
+    const chatbotPopup = document.getElementById("chatbotPopup");
+    chatbotPopup.style.display = chatbotPopup.style.display === "none" ? "block" : "none";
+}
 
-app.use(bodyParser.json());
+function closeChatbot() {
+    const chatbotPopup = document.getElementById("chatbotPopup");
+    chatbotPopup.style.display = "none";
+}
 
-// Serve static files from the public directory
-app.use(express.static('public'));
+async function sendChat() {
+    const chatInput = document.getElementById("chatInput").value;
+    const chatResponses = document.getElementById("chatResponses");
 
-app.post('/api/chatbot', async (req, res) => {
-    const userMessage = req.body.message;
+    // Append user's message to the chatResponses
+    const userMessage = document.createElement("div");
+    userMessage.textContent = "You: " + chatInput;
+    chatResponses.appendChild(userMessage);
 
     try {
-        const response = await axios.post('https://api.openai.com/v1/engines/davinci/completions', {
-            prompt: `You are a knowledgeable chatbot for a car performance company. A customer asks: "${userMessage}"`,
-            max_tokens: 150
-        }, {
+        // Send the message to the server
+        const response = await fetch('/api/chatbot', {
+            method: 'POST',
             headers: {
-                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
-            }
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: chatInput })
         });
 
-        res.json({ response: response.data.choices[0].text.trim() });
-    } catch (error) {
-        console.error('Error calling OpenAI API:', error);
-        res.status(500).send('Error processing your request');
-    }
-});
+        const data = await response.json();
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+        // Append AI's response to the chatResponses
+        const aiMessage = document.createElement("div");
+        aiMessage.textContent = "AI: " + data.response;
+        chatResponses.appendChild(aiMessage);
+    } catch (error) {
+        console.error('Error sending message to server:', error);
+        const errorMessage = document.createElement("div");
+        errorMessage.textContent = "AI: Sorry, there was an error processing your request.";
+        chatResponses.appendChild(errorMessage);
+    }
+
+    // Clear the chat input
+    document.getElementById("chatInput").value = '';
+}

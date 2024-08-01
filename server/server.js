@@ -1,37 +1,43 @@
-require('dotenv').config();
+// server.js
 const express = require('express');
-const bodyParser = require('body-parser');
 const axios = require('axios');
+const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
-const port = process.env.PORT || 3000;
+app.use(express.json());
+app.use(cors());
 
-app.use(bodyParser.json());
+const PORT = process.env.PORT || 5000;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
-// Serve your static files (HTML, CSS, JS)
-app.use(express.static('public'));
+app.post('/chat', async (req, res) => {
+  const { message } = req.body;
 
-// Endpoint to receive chat from frontend
-app.post('/api/chatbot', async (req, res) => {
-    const userMessage = req.body.message;
+  try {
+    const response = await axios.post(
+      'https://api.openai.com/v1/chat/completions',
+      {
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: message }]
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${OPENAI_API_KEY}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
 
-    try {
-        const response = await axios.post('https://api.openai.com/v1/engines/davinci/completions', {
-            prompt: `You are a knowledgeable chatbot for a car performance company. A customer asks: "${userMessage}"`,
-            max_tokens: 150
-        }, {
-            headers: {
-                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
-            }
-        });
+    const aiResponse = response.data.choices[0].message.content.trim();
+    res.json({ reply: aiResponse });
 
-        // Send back the chatbot's response to the client
-        res.json({ response: response.data.choices[0].text.trim() });
-    } catch (error) {
-        console.error('Error calling OpenAI API:', error);
-        res.status(500).send('Error processing your request');
-    }
+  } catch (error) {
+    console.error("Error calling OpenAI API:", error);
+    res.status(500).send('Server error');
+  }
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

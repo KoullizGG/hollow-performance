@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
@@ -6,9 +7,10 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-// Serve static files from the public directory
+// Serve your static files (HTML, CSS, JS)
 app.use(express.static('public'));
 
+// Endpoint to receive chat from frontend
 app.post('/api/chatbot', async (req, res) => {
     const userMessage = req.body.message;
 
@@ -22,6 +24,7 @@ app.post('/api/chatbot', async (req, res) => {
             }
         });
 
+        // Send back the chatbot's response to the client
         res.json({ response: response.data.choices[0].text.trim() });
     } catch (error) {
         console.error('Error calling OpenAI API:', error);

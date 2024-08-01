@@ -1,9 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #121212;
     color: #ffffff;
-    line-height: 1.6;
 }
 
 header {
@@ -12,9 +11,6 @@ header {
     align-items: center;
     padding: 20px;
     background-color: #1f1f1f;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 .logo {
@@ -49,12 +45,12 @@ nav ul li a:hover {
     text-align: center;
     padding: 100px 20px;
     background: url('images/high-performance-car.jpg') no-repeat center center/cover;
-    color: #00ffcc;
 }
 
 .banner .intro h2 {
     font-size: 48px;
     margin: 0;
+    color: #00ffcc;
 }
 
 .banner .intro p {
@@ -82,11 +78,10 @@ section {
     padding: 40px 20px;
 }
 
-.service-item {
+.service-item, .gallery-container img {
     margin: 10px 0;
-    border-left: 5px solid #00ffcc;
+    border: 2px solid #00ffcc;
     padding: 10px;
-    background-color: #202020;
 }
 
 .gallery-container {
@@ -96,20 +91,20 @@ section {
 }
 
 .gallery-container img {
-    width: calc(33% - 20px);
-    margin: 10px;
-    border: 2px solid #00ffcc;
-    transition: transform 0.3s;
-}
-
-.gallery-container img:hover {
-    transform: scale(1.05);
+    width: 200px;
+    height: auto;
 }
 
 footer {
     padding: 20px;
     background-color: #1f1f1f;
     text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .social-media a {
@@ -123,19 +118,74 @@ footer {
     color: #00cc99;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
+/* Chatbot Styling */
+#chatbotButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #00ffcc;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
+#chatbotButton:hover {
+    background-color: #00cc99;
+}
 
-    .gallery-container img {
-        width: calc(50% - 20px);  /* Adjust gallery layout on smaller screens */
-    }
+.chatbot-popup {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    background-color: #1f1f1f;
+    border: 1px solid #00ffcc;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #00ffcc;
+    color: #121212;
+    border-radius: 5px 5px 0 0;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #333333;
+}
+
+.chatbot-content {
+    padding: 10px;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
 }

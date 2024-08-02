@@ -1,99 +1,114 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hollow Performance</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-        <header>
-            <div class="logo">Hollow Performance</div>
-            <nav>
-                <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollow Performance</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a href="#" class="navbar-brand logo">Hollow Performance</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-            </nav>
-        </header>
-        <main>
-            <section id="home" class="banner">
-                <div class="intro">
-                    <h2>Welcome to Hollow Performance</h2>
-                    <p>Your one-stop shop for custom ECU tuning and car performance upgrades.</p>
-                    <a href="#services" class="cta-button">Discover Our Services</a>
-                </div>
-            </section>
-            <section id="about">
-                <h2>About Us</h2>
-                <p>At Hollow Performance, we specialize in providing top-notch ECU tuning and performance upgrades for a wide range of vehicles. Our experienced team is dedicated to enhancing your driving experience.</p>
-            </section>
-            <section id="services">
-                <h2>Our Services</h2>
-                <div class="service-item">
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="home" class="banner" style="background: url('images/banner-high-performance-car.jpg') no-repeat center center / cover;">
+            <div class="container text-center">
+                <h2>Welcome to Hollow Performance</h2>
+                <p>Your one-stop shop for custom ECU tuning and car performance upgrades.</p>
+                <a href="#services" class="btn btn-primary mt-3 cta-button">Discover Our Services</a>
+            </div>
+        </section>
+        <section id="about" class="container my-5">
+            <h2>About Us</h2>
+            <p>At Hollow Performance, we specialize in providing top-notch ECU tuning and performance upgrades for a wide range of vehicles. Our experienced team is dedicated to enhancing your driving experience.</p>
+        </section>
+        <section id="services" class="container my-5">
+            <h2>Our Services</h2>
+            <div class="row">
+                <div class="col-md-6 service-item">
                     <h3>Custom ECU Tuning</h3>
+                    <img src="images/service-ecu-tuning.jpg" class="img-fluid mb-4" alt="ECU Tuning">
                     <p>Unlock the full potential of your vehicle with our custom ECU tuning services. We tailor each tune to meet your specific needs and performance goals.</p>
                 </div>
-                <div class="service-item">
+                <div class="col-md-6 service-item">
                     <h3>Performance Upgrades</h3>
+                    <img src="images/service-performance-upgrades.jpg" class="img-fluid mb-4" alt="Performance Upgrades">
                     <p>From turbochargers to exhaust systems, we offer a variety of performance upgrades to take your vehicle to the next level.</p>
                 </div>
-            </section>
-            <section id="gallery">
-                <h2>Gallery</h2>
-                <div class="gallery-container">
-                    <img src="images/ecu-tuning.jpg" alt="ECU Tuning">
-                    <img src="images/high-performance-car.jpg" alt="High-Performance Car">
-                    <img src="images/classic-car.jpg" alt="Classic Car">
-                    <img src="images/custom-car.jpg" alt="Custom Car">
-                </div>
-            </section>
-            <section id="contact" class="contact-section">
-                <h2>Contact Us</h2>
-                <form id="contact-form" class="contact-form">
-                    <div class="form-field">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button">Send</button>
-                </form>
-                <button id="chatbotButton" class="chat-button" onclick="toggleChatbot()">Chat with us</button>
-            </section>
-            
-            <!-- Chatbot Popup -->
-            <div id="chatbotPopup" class="chatbot-popup">
-                <div class="chatbot-header">
-                    <span onclick="closeChatbot()" class="close-btn">&times;</span>
-                    <h2>Chat with Mikey</h2>
-                </div>
-                <div class="chatbot-content">
-                    <div id="chatMessages" class="chat-messages"></div>
-                    <textarea id="chatInput" placeholder="Type your message and press Enter..."></textarea>
-                    <button id="sendButton" onclick="sendChat()">Send</button>
-                </div>
             </div>
-            
-            
-        </main>
-        <footer>
-            <p>&copy; 2024 Hollow Performance</p>
-            <div class="social-media">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
+        </section>
+        <section id="gallery" class="container my-5">
+            <h2>Gallery</h2>
+            <div class="gallery-container">
+                <img src="images/gallery-classic-car.jpg" class="img-fluid mb-4" alt="Classic Car">
+                <img src="images/gallery-custom-car.jpg" class="img-fluid mb-4" alt="Custom Car">
             </div>
-        </footer>
-        <script src="js/script.js"></script>
-    </body>
-    </html>
+        </section>
+        <section id="contact" class="container my-5 contact-section">
+            <h2>Contact Us</h2>
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xnnapkqj" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+            <div id="contact-success" class="alert alert-success mt-3" style="display: none;">
+                Thank you for your message! We will contact you shortly.
+            </div>
+            <div id="contact-error" class="alert alert-danger mt-3" style="display: none;">
+                Oops! There was a problem submitting your message. Please try again.
+            </div>
+        </section>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Hollow Performance</p>
+        <div class="social-media">
+            <a href="#" class="text-white mx-2" aria-label="Facebook">Facebook</a>
+            <a href="#" class="text-white mx-2" aria-label="Twitter">Twitter</a>
+            <a href="#" class="text-white mx-2" aria-label="Instagram">Instagram</a>
+        </div>
+    </footer>
+    <button id="chatbotButton" class="chat-button" aria-label="Open chat">
+        <img src="images/chat-icon.png" alt="Chat Icon" style="width: 100%; height: auto;">
+    </button>
+    <div id="chatbotPopup" class="chatbot-popup" style="display: none;">
+        <div class="chatbot-header">
+            <h2>Chat with Mikey</h2>
+            <span class="close-btn" aria-label="Close chat">&times;</span>
+        </div>
+        <div class="chatbot-content">
+            <div id="chatMessages" class="chat-messages"></div>
+            <textarea id="chatInput" class="chat-input" placeholder="Type your message and press Enter..."></textarea>
+        </div>
+    </div>
+    <script src="js/chatbot.js"></script> <!-- Link to the external JavaScript file -->
+</body>
+</html>

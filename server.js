@@ -12,7 +12,7 @@ dotenv.config();
 
 app.use(bodyParser.json());
 
-// Serve static files from the public directory
+// Serve static files from the public ßdirectory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Store conversation state
@@ -29,7 +29,7 @@ app.post('/api/chatbot', async (req, res) => {
         const prompt = `
             You are a friendly and knowledgeable assistant at Hollow Performance, an ECU tuning and car performance upgrade service. 
             Answer user questions with concise and helpful information. When a user asks about tuning, suggest relevant details such as 
-            make, model, year, and engine type to provide the best advice. Make the conversation engaging, friendly, and provide short answers. 
+            make, model, year, and engine type to provide the best advice and dont give estimate if you dont have all the details. Make the conversation engaging, friendly, and provide short answers. 
             Offer HP estimates if possible and encourage users to contact us for a quote at the end of the conversation.
         `;
 
